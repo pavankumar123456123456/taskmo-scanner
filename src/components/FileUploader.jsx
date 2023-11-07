@@ -35,7 +35,8 @@ export const FileUploader = ({ handleFile, setImageData }) => {
       </button>
       <input
         type="file"
-        accept="image/*;capture=camera"
+        accept="image/*"
+        capture="camera"
         onChange={handleChange}
         ref={hiddenFileInput}
         style={{ display: 'none' }} // Make the file input element invisible
