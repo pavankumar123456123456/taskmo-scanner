@@ -118,7 +118,7 @@ const Login = () => {
       </Grid>
 
       <Stack spacing={2} sx={{ width: '100%' }}>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
           {sessionStorage.getItem('user-token') &&
           mobile == '9876543210' &&
           password == '12345' ? (
