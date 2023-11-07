@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({ open, setOpen, type, setType }) => {
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+const Login = () => {
   const [mobile, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = React.useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,10 +24,35 @@ const Login = ({ open, setOpen, type, setType }) => {
         mobile_number: mobile,
         password: password,
       };
+
+      if (mobile == '9876543210' && password == '12345') {
+        localStorage.setItem('user-token', 'tokenadded');
+
+        handleClick();
+        setTimeout(() => {
+          navigate('/scanner');
+        }, 1000);
+      } else {
+        handleClick();
+      }
     }
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
-    <>
+    <div>
       <Grid
         style={{
           marginTop: '120px',
@@ -82,7 +116,31 @@ const Login = ({ open, setOpen, type, setType }) => {
           </small>
         </Grid>
       </Grid>
-    </>
+
+      <Stack spacing={2} sx={{ width: '100%' }}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          {localStorage.getItem('user-token') &&
+          mobile == '9876543210' &&
+          password == '12345' ? (
+            <Alert
+              onClose={handleClose}
+              severity="success"
+              sx={{ width: '100%' }}
+            >
+              signin success !
+            </Alert>
+          ) : (
+            <Alert
+              onClose={handleClose}
+              severity="error"
+              sx={{ width: '100%' }}
+            >
+              Enter correct details to login !
+            </Alert>
+          )}
+        </Snackbar>
+      </Stack>
+    </div>
   );
 };
 
