@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 // import './styles.css';
-export const FileUploader = ({ handleFile }) => {
+export const FileUploader = ({ handleFile, setImageData }) => {
   // Create a reference to the hidden file input element
   const hiddenFileInput = useRef(null);
 
@@ -14,6 +14,19 @@ export const FileUploader = ({ handleFile }) => {
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     handleFile(fileUploaded);
+    if (fileUploaded) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const base64Image = e.target.result;
+        setImageData(base64Image);
+
+        // Store the Base64-encoded image in localStorage
+        localStorage.setItem('uploadedImage', base64Image);
+      };
+
+      reader.readAsDataURL(fileUploaded);
+    }
   };
   return (
     <>
