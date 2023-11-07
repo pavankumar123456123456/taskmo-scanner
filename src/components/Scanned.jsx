@@ -74,7 +74,10 @@ const Scanned = () => {
         <Button
           variant="contained"
           color="error"
-          onClick={() => navigate('/scanner')}
+          onClick={() => {
+            localStorage.removeItem('uploadedImage');
+            navigate('/scanner');
+          }}
         >
           Rescan
         </Button>

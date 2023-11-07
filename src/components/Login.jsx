@@ -26,7 +26,7 @@ const Login = () => {
       };
 
       if (mobile == '9876543210' && password == '12345') {
-        localStorage.setItem('user-token', 'tokenadded');
+        sessionStorage.setItem('user-token', 'tokenadded');
 
         handleClick();
         setTimeout(() => {
@@ -119,7 +119,7 @@ const Login = () => {
 
       <Stack spacing={2} sx={{ width: '100%' }}>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          {localStorage.getItem('user-token') &&
+          {sessionStorage.getItem('user-token') &&
           mobile == '9876543210' &&
           password == '12345' ? (
             <Alert
