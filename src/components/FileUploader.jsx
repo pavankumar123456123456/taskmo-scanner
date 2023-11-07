@@ -32,7 +32,9 @@ export const FileUploader = ({ handleFile, setImageData }) => {
 
       reader.readAsDataURL(fileUploaded);
     }
-    navigate('/scanned-data');
+    setTimeout(()=>{
+      navigate('/scanned-data');
+    },2000)
   };
   return (
     <>
