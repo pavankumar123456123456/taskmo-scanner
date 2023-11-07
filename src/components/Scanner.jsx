@@ -8,12 +8,36 @@ const Scanner = () => {
   );
   console.log(file, 'testingfile');
   return (
-    <div>
-      <div>scanner</div>
-      <FileUploader handleFile={handleFile} setImageData={setImageData} />
-      {imageData && (
-        <img src={imageData} alt="Uploaded" height={'100px'} width={'100px'} />
-      )}
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh',
+        gap: '20px',
+        padding: '2%',
+      }}
+    >
+      <div>Meter Scanner</div>
+
+      <div>
+        <img src={imageData} alt="Uploaded" height={'300px'} width={'300px'} />
+      </div>
+
+      <div>
+        <FileUploader handleFile={handleFile} setImageData={setImageData} />
+      </div>
+      <div>
+        {imageData && (
+          <img
+            src={imageData}
+            alt="Uploaded"
+            height={'100px'}
+            width={'100px'}
+          />
+        )}
+      </div>
     </div>
   );
 };

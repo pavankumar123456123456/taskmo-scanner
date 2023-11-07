@@ -1,4 +1,6 @@
+import { Button } from '@mui/material';
 import { useRef } from 'react';
+import CameraIcon from '@mui/icons-material/Camera';
 // import './styles.css';
 export const FileUploader = ({ handleFile, setImageData }) => {
   // Create a reference to the hidden file input element
@@ -30,9 +32,15 @@ export const FileUploader = ({ handleFile, setImageData }) => {
   };
   return (
     <>
-      <button className="button-upload" onClick={handleClick}>
-        Upload a file
-      </button>
+      <Button
+        disableElevation
+        variant="contained"
+        className="button-upload"
+        onClick={handleClick}
+        startIcon={<CameraIcon />}
+      >
+        Scan
+      </Button>
       <input
         type="file"
         accept="image/*"

@@ -73,11 +73,11 @@ const Login = ({ open, setOpen, type, setType }) => {
             </Button>
           </form>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ marginTop: '5px' }}>
           <small>
             Need an account?
             {/* <Link to="/register"> */}
-            Register here
+            <span style={{ color: 'blue' }}>&nbsp;Register here</span>
             {/* </Link> */}
           </small>
         </Grid>
