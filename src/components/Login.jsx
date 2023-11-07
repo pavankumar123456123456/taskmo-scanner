@@ -21,10 +21,11 @@ const Login = ({ open, setOpen, type, setType }) => {
     <>
       <Grid
         style={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
+          marginTop: '120px',
+          //   height: '100vh',
+          //   display: 'flex',
+          //   flexDirection: 'column',
+          //   justifyContent: 'center',
         }}
       >
         <Grid item xs={12}>
