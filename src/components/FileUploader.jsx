@@ -1,8 +1,11 @@
 import { Button } from '@mui/material';
 import { useRef } from 'react';
 import CameraIcon from '@mui/icons-material/Camera';
+import { useNavigate } from 'react-router-dom';
+
 // import './styles.css';
 export const FileUploader = ({ handleFile, setImageData }) => {
+  const navigate = useNavigate();
   // Create a reference to the hidden file input element
   const hiddenFileInput = useRef(null);
 
@@ -29,6 +32,7 @@ export const FileUploader = ({ handleFile, setImageData }) => {
 
       reader.readAsDataURL(fileUploaded);
     }
+    navigate('/scanned-data');
   };
   return (
     <>
