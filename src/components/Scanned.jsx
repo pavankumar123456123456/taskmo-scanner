@@ -50,7 +50,7 @@ const Scanned = () => {
           alignItems: 'center',
         }}
       >
-        <div>Detected Image Reading</div>
+        <div>Detected Meter Reading</div>
         <div>
           <img
             src={meterReadingPrev}
@@ -61,13 +61,16 @@ const Scanned = () => {
         </div>
       </div>
       <div style={{ display: 'flex', gap: '2px' }}>
-        <div>Detected Reading : </div>
+        <div>Detected value : </div>
         <div>
-          <span>{randomInteger(100, 1000)}</span>
+          <span>
+            {/* {randomInteger(100, 1000)} */}
+            0.062
+          </span>
         </div>
       </div>
       <div style={{ display: 'flex' }}>
-        <div>Detected Reading :</div>
+        <div>Detected Units :</div>
         <div>&nbsp;kwh</div>
       </div>
       <div>
